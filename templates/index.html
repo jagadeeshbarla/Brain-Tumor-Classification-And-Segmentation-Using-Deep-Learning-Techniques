@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Segmentation using deeplabv3plus</title>
+	<link rel="stylesheet" type="text/css" href="./static/css/style.css">       
+    <style>
+		.title {
+			text-align: center;
+		}
+	</style>
+    <style>
+		img{
+			
+			position:relative;
+			
+
+		}
+		
+		.container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			
+		}
+		.container img {
+			margin: 20px;
+		}
+		h1 {
+		background-color: rgb(230, 108, 108);
+		color: white;
+		}
+		h2 {
+		background-color: rgb(230, 108, 108);
+		color: white;
+	  }
+	  
+	  #f{
+		align-self: center;
+		background-color: aqua;
+		border-radius: 5%;
+
+		}
+	  
+		
+	</style>
+</head>
+<body>
+	<style>
+		body {
+		  background-image: url('/static/images/download.jpg');
+		  background-repeat: no-repeat;
+		  background-attachment: fixed;
+		  background-size: 60% 90%; 
+		}
+		</style>
+	<div class="main">
+	<h1 class="title">Image Segmentation using deeplabv3plus </h1>
+	<form action="/" method="POST" enctype="multipart/form-data" accept="image/*">
+		<input type="file" name="image" ><br><br>
+		<input type="submit" value="Upload">
+	</form>
+    <div class="container">
+		<div class="image">
+			<h2>Input Image</h2>
+			<img src="data:image/jpeg;base64,{{ input_image }}" width="256" alt="upload_image"><br><br>
+		</div>
+		<div class="image">
+			<h2>Segmented Mask</h2>
+			<img src="data:image/jpeg;base64,{{ mask_image }}" width="256" alt="upload_image">
+			<br>
+		</div>
+	</div>
+</div>
+<br>
+<center>
+		<div id="f">
+			<p >
+				{{prediction_text}}
+		    </p>
+		</div>
+</center>
+
+
+</body>
+</html>
